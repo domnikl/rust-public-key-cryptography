@@ -20,7 +20,10 @@ fn gcd(a: i64, b: i64) -> i64 {
     } else if b == 0 {
         a
     } else {
-        gcd(b, a % b)
+        let x = if a < 0 { -a } else { a };
+        let y = if b < 0 { -b } else { b };
+
+        gcd(y, x % y)
     }
 }
 
@@ -44,6 +47,7 @@ fn main() {
 #[test]
 fn gcd_valid() {
     assert_eq!(6, gcd(270, 192));
+    assert_eq!(6, gcd(-270, 192));
     assert_eq!(77, gcd(7469, 2464));
     assert_eq!(970, gcd(55290, 115430));
 }
@@ -51,6 +55,7 @@ fn gcd_valid() {
 #[test]
 fn lcm_valid() {
     assert_eq!(8640, lcm(270, 192));
+    assert_eq!(8640, lcm(-270, -192));
     assert_eq!(239008, lcm(7469, 2464));
     assert_eq!(6579510, lcm(55290, 115430));
 }
