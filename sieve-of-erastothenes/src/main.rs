@@ -71,14 +71,10 @@ fn get_i64(prompt: &str) -> i64 {
 fn main() {
     let max = get_i64("Max: ");
     let mut sieve = sieve_of_eratosthenes(max as usize);
-    if max < 1000 {
-        print_sieve(&mut sieve);
-    }
+    print_sieve(&mut sieve);
 
     let mut primes = sieve_to_primes(sieve);
-    if max < 1000 {
-        print_numbers(&mut primes);
-    }
+    print_numbers(&mut primes);
 }
 
 #[test]
